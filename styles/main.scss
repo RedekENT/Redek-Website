@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Arial;
+
+    header,
+    footer {
+        nav {
+            ul {
+                display: flex;
+                align-items: center;
+                list-style-type: none;
+
+                li {
+                    padding: 0 5px;
+
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: lawngreen;
+                        }
+                    }
+
+                    img {
+                        width: 35vw;
+
+                        @media only screen and (orientation: landscape) {
+                            width: 20vw;
+                        }
+
+                        @media only screen and (min-width: 768px) {
+                            width: 20vw;
+                        }
+
+                        @media only screen and (min-width: 1024px) {
+                            width: 17.5vw;
+                        }
+
+                        @media only screen and (min-width: 1366px) {
+                            width: 15vw;
+                        }
+
+                        @media only screen and (min-width: 1920px) {
+                            width: 10vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+
+        @media only screen and (min-width: 768px) {
+            margin: 0 auto;
+        }
+
+        @media only screen and (min-width: 1366px) {
+            width: 95%;
+        }
+
+        .hero {
+            height: 100vw;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media only screen and (orientation: landscape) {
+                height: 35vw;
+            }
+
+            .cta {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: lawngreen;
+                width: 10rem;
+                height: 4rem;
+                border-radius: 1rem;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .one_column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .two_columns,
+        .three_columns {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media only screen and (min-width: 1024px) {
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+        }
+
+        .two_columns .left,
+        .two_columns .right {
+            @media only screen and (min-width: 1024px) {
+                width: 45%;
+            }
+        }
+
+        .three_columns .left,
+        .three_columns .middle,
+        .three_columns .right {
+            width: 30%;
+        }
+
+        .socials {
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                list-style-type: none;
+                padding: 0;
+
+                li {
+                    display: inline-flex;
+
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: lawngreen;
+                        }
+                    }
+
+                    img {
+                        width: 1.25rem;
+                    }
+                }
+            }
+        }
+
+        .image_grid {
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0 4px;
+            }
+
+            /* Create four equal columns that sits next to each other */
+            .column {
+                flex: 25%;
+                max-width: 25%;
+                padding: 0 4px;
+            }
+
+            .column img {
+                margin-top: 8px;
+                vertical-align: middle;
+            }
+
+            /* Responsive layout - makes a two column-layout instead of four columns */
+            @media screen and (max-width: 800px) {
+                .column {
+                    flex: 50%;
+                    max-width: 50%;
+                }
+            }
+
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .column {
+                    flex: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
