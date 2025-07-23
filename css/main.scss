@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
@@ -52,7 +52,7 @@ body {
                 list-style-type: none;
 
                 li {
-                    padding: 0 5px;
+                    padding: 0 0.5rem;
 
                     a {
                         text-decoration: none;
@@ -84,38 +84,64 @@ body {
         }
 
         .hero {
-            height: 100vw;
-            width: 100%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 100%;
+            position: relative;
 
-            @media only screen and (min-width: 768px) {
-                height: 50vw;
+            img {
+                width: 100%;
+
+                @media only screen and (min-width: 1024px) {
+                    width: 50%;
+                }
+
+                &:last-of-type {
+                    display: none;
+
+                    @media only screen and (min-width: 1024px) {
+                        display: block;
+                    }
+                }
             }
 
-            @media only screen and (orientation: landscape) {
-                height: 35vw;
-            }
-
-            .cta {
+            div.text {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                background-color: rgb(79 70 229);
+                position: absolute;
+                width: 99%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
                 color: white;
-                padding: 1.5rem 1rem;
-                border-radius: 0.5rem;
-                border: 1px solid rgb(79 70 229);
-                font-weight: bold;
-                text-decoration: none;
-                cursor: pointer;
-                margin-top: 1rem;
-            }
 
-            p {
-                text-align: center;
+                @media only screen and (orientation: landscape) {
+                    width: 100%;
+                }
+
+                .cta {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: rgb(79 70 229);
+                    color: white;
+                    padding: 1.5rem 1rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid rgb(79 70 229);
+                    font-weight: bold;
+                    text-decoration: none;
+                    cursor: pointer;
+                    margin-top: 1rem;
+                }
+
+                h1,
+                p {
+                    text-align: center;
+                    text-shadow: 1px 1px 2px #000;
+                }
             }
         }
 
@@ -129,6 +155,14 @@ body {
             flex-direction: column;
             align-items: center;
             width: 100%;
+
+            .hero1 {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
         }
 
         .two_columns,
@@ -158,16 +192,104 @@ body {
         }
 
         .image_grid {
+            width: 100%;
+
+            div.image_slideshow {
+                display: block;
+                text-shadow: 1px 1px 2px #000;
+
+                @media only screen and (min-width: 768px) {
+                    display: none;
+                }
+
+                .slideshow_container {
+                    max-width: 1000px;
+                    position: relative;
+                    margin: auto;
+                }
+
+                .my_slides {
+                    display: none;
+                }
+
+                .prev,
+                .next {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    width: auto;
+                    margin-top: -22px;
+                    padding: 16px;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 18px;
+                    transition: 0.6s ease;
+                    border-radius: 0 3px 3px 0;
+                    user-select: none;
+                }
+
+                .next {
+                    right: 0;
+                    border-radius: 3px 0 0 3px;
+                }
+
+                .prev:hover,
+                .next:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                }
+
+                .text {
+                    color: #f2f2f2;
+                    font-size: 15px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    bottom: 8px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .number_text {
+                    color: #f2f2f2;
+                    font-size: 12px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    top: 0;
+                }
+
+                .active {
+                    background-color: #717171;
+                }
+
+                .fade {
+                    animation-name: fade;
+                    animation-duration: 1.5s;
+                }
+
+                @keyframes fade {
+                    from {
+                        opacity: .4
+                    }
+
+                    to {
+                        opacity: 1
+                    }
+                }
+            }
+
             .row {
-                display: flex;
+                display: none;
                 flex-wrap: wrap;
-                padding: 0 4px;
+                padding: 0 0.25rem;
+
+                @media only screen and (min-width: 768px) {
+                    display: flex;
+                }
             }
 
             .column {
                 flex: 25%;
                 max-width: 25%;
-                padding: 0 4px;
+                padding: 0 0.25rem;
 
                 @media screen and (max-width: 800px) {
                     flex: 50%;
@@ -188,7 +310,6 @@ body {
 
         .why_us {
             width: 100%;
-            margin-top: 3rem;
 
             .cards {
                 display: flex;
@@ -196,10 +317,17 @@ body {
                 align-items: center;
                 width: 100%;
                 margin: 0 0 3rem 0;
+                width: 90%;
+                margin: 0 auto;
 
                 @media only screen and (min-width: 768px) {
+                    margin: 0 auto;
                     flex-direction: row;
                     justify-content: space-evenly;
+                }
+
+                @media only screen and (min-width: 1366px) {
+                    width: 75%;
                 }
 
                 .card {
@@ -239,7 +367,22 @@ body {
             }
         }
 
-        .sevices {
+        .services {
+            text-align: center;
+
+            @media only screen and (min-width: 1024px) {
+                width: 75%;
+                margin: 0 auto;
+            }
+
+            @media only screen and (min-width: 1366px) {
+                width: 60%;
+            }
+
+            @media only screen and (min-width: 1920px) {
+                width: 48%;
+            }
+
             ul {
                 display: flex;
                 padding: 0;
@@ -271,7 +414,7 @@ body {
             display: flex;
             flex-direction: column-reverse;
 
-            @media only screen and (orientation: landscape) {
+            @media only screen and (min-width: 1024px) and (orientation: landscape) {
                 flex-direction: row;
                 justify-content: space-between;
             }
