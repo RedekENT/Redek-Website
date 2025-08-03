@@ -202,6 +202,11 @@ body {
 
                 .my_slides {
                     display: none;
+
+                    & img {
+                        width: 100%;
+                        height: auto;
+                    }
                 }
 
                 .prev,
@@ -225,8 +230,8 @@ body {
                     border-radius: 3px 0 0 3px;
                 }
 
-                .prev:hover,
-                .next:hover {
+                .prev:active,
+                .next:active {
                     background-color: rgba(0, 0, 0, 0.8);
                 }
 
@@ -296,6 +301,8 @@ body {
                 img {
                     margin-top: 8px;
                     vertical-align: middle;
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
